@@ -20,6 +20,10 @@ Route::post('/signin', ['uses' => 'UserController@postSignIn', 'as' => 'signin']
 
     Route::get('/', function () { return view('welcome'); });
 
-Route::get('/dashboard', ['uses' => 'UserController@getDashboard', 'as' => 'dashboard']);
+Route::get('/dashboard', [
+    'uses' => 'UserController@getDashboard', 
+    'as' => 'dashboard',
+    'middleware' =>'auth'
+    ]);
 
 });
